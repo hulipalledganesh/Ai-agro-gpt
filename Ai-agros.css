@@ -1,0 +1,73 @@
+/* GLOBAL STYLES */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f9f4; color: #333; }
+.hidden { display: none !important; }
+
+/* AUTH VIEW STYLES (Login & Signup) */
+.auth-wrapper { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
+.auth-container { width: 100%; max-width: 400px; background: white; padding: 40px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15); }
+.auth-header { text-align: center; margin-bottom: 30px; }
+.auth-header h1 { color: #2e7d32; margin: 0 0 5px 0; font-size: 28px; }
+.auth-header p { color: #666; margin: 0; font-size: 14px; }
+.form-box { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-size: 13px; font-weight: bold; color: #444; }
+.form-group input { padding: 12px 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; transition: border-color 0.3s; }
+.form-group input:focus { border-color: #2e7d32; outline: none; }
+.submit-btn { padding: 14px; background: #2e7d32; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; transition: background 0.3s; }
+.submit-btn:hover { background: #1b5e20; }
+.auth-switch { text-align: center; margin-top: 15px; font-size: 14px; }
+.auth-switch a { color: #2e7d32; font-weight: bold; text-decoration: none; cursor: pointer; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* APP VIEW STYLES (index.html) */
+.app-wrapper { padding: 20px; }
+.app-container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+/* HEADER & PROFILE */
+.app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #e8f5e9; padding-bottom: 15px; }
+.user-profile { display: flex; align-items: center; gap: 10px; font-weight: bold; color: #2e7d32; position: relative; cursor: pointer; padding: 5px; border-radius: 8px; transition: background 0.2s;}
+.user-profile:hover { background: #e8f5e9; }
+.profile-icon { background: #2e7d32; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; }
+.profile-menu { display: none; position: absolute; top: 55px; left: 0; background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 200px; z-index: 100; flex-direction: column; overflow: hidden; }
+.profile-menu.show { display: flex; }
+.menu-item { padding: 12px 15px; border: none; border-bottom: 1px solid #eee; font-size: 14px; color: #333; text-align: left; background: none; cursor: pointer; transition: background 0.2s; }
+.menu-item:hover { background: #f4f9f4; color: #2e7d32; font-weight: bold; }
+.menu-item:last-child { border-bottom: none; color: #d32f2f; }
+.app-title-container h1 { color: #2e7d32; margin: 0; }
+.lang-select { padding: 8px; border-radius: 6px; border: 1px solid #2e7d32; font-weight: bold; color: #2e7d32; outline: none; }
+
+/* WEATHER WIDGET */
+.weather-widget { background: linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%); color: white; padding: 15px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(2, 136, 209, 0.2); }
+.weather-info h3 { margin: 0 0 5px 0; font-size: 18px; }
+.weather-info p { margin: 0; font-size: 14px; opacity: 0.9; }
+.weather-temp { font-size: 32px; font-weight: bold; }
+
+/* MODALS */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 200; justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 450px; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e8f5e9; padding-bottom: 10px; margin-bottom: 15px; }
+.modal-header h3 { margin: 0; color: #2e7d32; }
+.close-btn { background: #f4f9f4; border: none; font-size: 16px; cursor: pointer; color: #333; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; font-weight: bold;}
+.close-btn:hover { background: #e8f5e9; color: #d32f2f; }
+.history-item { padding: 12px; border-bottom: 1px solid #eee; font-size: 15px; background: #fafafa; margin-bottom: 8px; border-radius: 6px; }
+.history-time { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
+
+/* VISION & CHAT STYLES */
+.vision-box { background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #c8e6c9; }
+.vision-result { margin-top: 15px; padding: 15px; background: white; border-radius: 6px; white-space: pre-line; display: none; border-left: 4px solid #2e7d32; }
+.chat-box { border: 1px solid #ddd; border-radius: 8px; padding: 15px; height: 350px; overflow-y: auto; background: #fafafa; margin-bottom: 10px; display: flex; flex-direction: column; }
+.message { margin: 10px 0; padding: 12px 16px; border-radius: 15px; max-width: 75%; white-space: pre-line; line-height: 1.4; }
+.user-msg { background: #2e7d32; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+.bot-msg { background: #e0e0e0; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; }
+
+/* QUICK ACTIONS & BUTTONS */
+.quick-actions { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+.chip { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; padding: 8px 15px; border-radius: 20px; font-size: 13px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+.chip:hover { background: #2e7d32; color: white; }
+.input-group { display: flex; gap: 8px; }
+.input-group input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+.input-group button, .vision-box button { padding: 12px 20px; background: #2e7d32; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; }
+.mic-btn { background: #fff !important; color: #2e7d32 !important; border: 2px solid #2e7d32 !important; font-size: 20px; }
+.mic-btn.recording { background: #f44336 !important; color: white !important; border-color: #f44336 !important; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(244, 67, 54, 0); } 100% { transform: scale(1); } }
+.loading { color: #2e7d32; font-style: italic; display: none; margin-top: 10px; font-weight: bold; }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AGRO-GPT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper" id="main-dashboard">
+        <div class="app-container">
+            
+            <div class="app-header">
+                <div class="user-profile" onclick="toggleProfileMenu(event)">
+                    <div class="profile-icon">👤</div>
+                    <span id="displayUserName">Farmer</span>
+                    
+                    <div class="profile-menu" id="profileMenu">
+                        <button class="menu-item" onclick="openModal('infoModal')">ℹ️ User Info</button>
+                        <button class="menu-item" onclick="openModal('historyModal')">🕒 Search History</button>
+                        <button class="menu-item" onclick="logoutApp()">🚪 Logout</button>
+                    </div>
+                </div>
+                
+                <div class="app-title-container">
+                    <h1>🌱 AGRO-GPT</h1>
+                </div>
+
+                <select class="lang-select" id="langSelect" onchange="updateLanguage()">
+                    <option value="English">English</option>
+                    <option value="Hindi">हिंदी (Hindi)</option>
+                    <option value="Kannada">ಕನ್ನಡ (Kannada)</option>
+                </select>
+            </div>
+            
+            <div class="weather-widget">
+                <div class="weather-info">
+                    <h3 id="weatherCity">📍 Locating...</h3>
+                    <p id="weatherDesc">Fetching live weather data for your farm</p>
+                </div>
+                <div class="weather-temp" id="weatherTemp">--°C</div>
+            </div>
+
+            <div class="vision-box">
+                <h3 style="margin-top: 0; color: #1b5e20;">📸 Detect Crop Disease</h3>
+                <p>Upload a real leaf photo. Gemini will analyze it visually and suggest treatments.</p>
+                <input type="file" id="leafImage" accept="image/*">
+                <br><br>
+                <button id="visionBtn" onclick="analyzeImage()">Analyze Real Image</button>
+                <p id="visionLoading" class="loading">⚙️ Analyzing...</p>
+                <div id="visionResult" class="vision-result"></div>
+            </div>
+
+            <div class="chat-container">
+                <h3 style="color: #1b5e20;">💬 Chat with AGRO-GPT</h3>
+                
+                <div class="quick-actions">
+                    <button class="chip" onclick="fillChat('What are the current market prices for tomatoes and onions?')">📈 Market Prices</button>
+                    <button class="chip" onclick="fillChat('What is the best fertilizer for wheat in this season?')">🌾 Fertilizer Guide</button>
+                    <button class="chip" onclick="fillChat('Are there any weather alerts or rain expected soon?')">🌧️ Rain Prediction</button>
+                </div>
+
+                <div class="chat-box" id="chatBox">
+                    <div class="message bot-msg">Hello! Ask me about crop diseases, weather alerts, fertilizers, or prices!</div>
+                </div>
+                <p id="chatLoading" class="loading">Thinking...</p>
+                
+                <div class="input-group">
+                    <input type="text" id="chatInput" placeholder="E.g., What fertilizer should I use for wheat?" onkeypress="handleEnter(event)">
+                    <button id="micBtn" class="mic-btn" onclick="toggleVoice()" title="Tap to Speak">🎤</button>
+                    <button id="chatBtn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="infoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Information</h3>
+                <button class="close-btn" onclick="closeModal('infoModal')">✖</button>
+            </div>
+            <p><strong>Full Name:</strong> <span id="infoModalName">Farmer</span></p>
+            <p><strong>Email Address:</strong> <span id="infoModalEmail">farmer@example.com</span></p>
+            <p style="color: #666; font-size: 13px; margin-top: 20px;">*Account simulated via Local Storage.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Search History</h3>
+                <button class="close-btn" onclick="closeModal('historyModal')">✖</button>
+            </div>
+            <div id="historyList">
+                <p style="color:#666; font-style:italic; text-align: center;">No searches yet. Start chatting!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
